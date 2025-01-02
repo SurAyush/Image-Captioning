@@ -5,7 +5,7 @@ from transformer import Transformer
 
 class Mapping_Network(nn.Module):
 
-    def __init__(self, config, dropout=0.1):
+    def __init__(self, config):
 
         super().__init__()
         self.config = config
