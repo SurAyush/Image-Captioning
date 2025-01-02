@@ -3,9 +3,6 @@ import torch
 import torch.nn as nn
 from transformers import GPT2LMHeadModel
 from mapping_network import MappingNetwork
-from Config import Config
-
-config = Config()
 
 class CaptionModel(nn.Module):
 
