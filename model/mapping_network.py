@@ -10,7 +10,7 @@ class Mapping_Network(nn.Module):
         super().__init__()
         self.config = config
         self.linear = nn.Linear(config.n_clip_emb, config.clip_length * config.d_model)        # 512 -> clip_length * d_model(768)
-        self.fixed_prefix = nn.Parameter(torch.randn(self.prefix_length, self.d_model), requires_grad=True)            # fixed prefix
+        self.fixed_prefix = nn.Parameter(torch.randn(config.prefix_length, config.d_model), requires_grad=True)            # fixed prefix
         self.transformer = Transformer(config)
 
 

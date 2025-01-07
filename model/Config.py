@@ -2,10 +2,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Config():
-    epochs: int = 5
+    epochs: int = 4
     batch_size: int = 128
     lr: float = 3e-5
-    warmup_steps: int = 4000
+    warmup_steps: int = 3000
     n_layers: int = 6
     n_clip_emb: int = 512
     n_heads: int = 8
