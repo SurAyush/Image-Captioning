@@ -1,4 +1,3 @@
-beam search
 Test Loss
 BLEU 1 and 2 score
 Train for 2 more epochs
