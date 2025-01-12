@@ -18,3 +18,11 @@ for el in loss_hist:
     
 print(s2/len(loss_hist))
 
+with open('./model/loss_history/test_loss_hist.pkl','rb') as f:
+    loss_hist = pickle.load(f)
+
+s3 = 0
+for el in loss_hist:
+    s3+=el
+
+print(s3/len(loss_hist))
