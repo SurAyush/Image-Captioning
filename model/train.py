@@ -1,6 +1,6 @@
-from Config import Config
-from model import CaptionModel
-from caption_dataset import Caption_Dataset
+from model.Config import Config
+from model.model import CaptionModel
+from model.caption_dataset import Caption_Dataset
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader

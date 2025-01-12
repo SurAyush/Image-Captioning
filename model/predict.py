@@ -5,8 +5,8 @@ import torch.nn.functional as F
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, CLIPProcessor, CLIPModel
 import skimage.io as io
 import PIL.Image
-from Config import Config
-from model import CaptionModel
+from model.Config import Config
+from model.model import CaptionModel
 
 config = Config()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -14,7 +14,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class Predictor():
     
-    def __init__(self, config, path):
+    def __init__(self, path, config = config):
         
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(device)                   # CLIP Model
@@ -91,7 +91,7 @@ def generate(model,tokenizer,embed):
         output_text = tokenizer.decode(output_list)
         
         
-    return output_text
+    return [output_text]
 
 
 # beam search decoding
@@ -171,5 +171,5 @@ if __name__ == '__main__':
     
     path = "./trained_model/model_epoch_4.pt"
     image = "image.jpg"
-    predictor = Predictor(config, path)
+    predictor = Predictor(path, config)
     print(predictor.predict(image))

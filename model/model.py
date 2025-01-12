@@ -2,7 +2,7 @@
 import torch
 import torch.nn as nn
 from transformers import GPT2LMHeadModel
-from mapping_network import Mapping_Network
+from model.mapping_network import Mapping_Network
 
 class CaptionModel(nn.Module):
 

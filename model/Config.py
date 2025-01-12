@@ -3,7 +3,7 @@ from dataclasses import dataclass
 @dataclass
 class Config():
     epochs: int = 4
-    batch_size: int = 128
+    batch_size: int = 32
     lr: float = 3e-5
     warmup_steps: int = 3000
     n_layers: int = 6

@@ -1,6 +1,0 @@
-BLEU 1 and 2 score
-Train for 2 more epochs
-Make assets: loss plots, drawio
-FastAPI route
-React/Next Frontend
-Readme.md and description

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-from transformer import Transformer
+from model.transformer import Transformer
 
 class Mapping_Network(nn.Module):
 
