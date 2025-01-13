@@ -55,8 +55,10 @@ def generate(model,tokenizer,embed):
 
     model.eval()
     stop_token = '.'                                                       # stop token for the generated caption
+    stop_token2 = '\n'
     stop_token_index = tokenizer.encode(stop_token)[0]
-    max_length= 75                                                         # maximum length of the generated caption
+    stop_token2_index = tokenizer.encode(stop_token2)[0]
+    max_length= 45                                                         # maximum length of the generated caption
     tokens = None
     top_k = 10                                                             # top-k sampling for the next token generation
     
@@ -84,7 +86,7 @@ def generate(model,tokenizer,embed):
 
             generated = torch.cat((generated, next_token_embed), dim=1)
 
-            if stop_token_index == next_token.item():
+            if stop_token_index == next_token.item() or stop_token2_index == next_token.item():
                 break
 
         output_list = list(tokens.squeeze().cpu().numpy())                                      # removing the batch dimension, converting to numpy and then to list
@@ -99,9 +101,11 @@ def generate_beam(model,tokenizer,embed, beam_size = 5):
 
     model.eval()
     stop_token = '.'
+    stop_token2 = '\n'
     stop_token_index = tokenizer.encode(stop_token)[0]
+    stop_token2_index = tokenizer.encode(stop_token2)[0]
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    entry_length = 75
+    entry_length = 45
     tokens = None
     scores = None                                                                         # 1d tensor containing score of every prediction
     seq_lengths = torch.ones(beam_size, device=device)                                    # contains seq len of each prediction
@@ -151,7 +155,7 @@ def generate_beam(model,tokenizer,embed, beam_size = 5):
                 
             next_token_embed = model.gpt.transformer.wte(next_tokens.squeeze()).view(generated.shape[0], 1, -1)                # auto-regressive generation
             generated = torch.cat((generated, next_token_embed), dim=1)
-            is_stopped = is_stopped + next_tokens.eq(stop_token_index).squeeze()                                                # checking if stop token is generated
+            is_stopped = is_stopped + next_tokens.eq(stop_token_index or stop_token2_index).squeeze()                                                # checking if stop token is generated
             
             if is_stopped.all():
                 break
