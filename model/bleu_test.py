@@ -78,11 +78,9 @@ class BLEU_Score:
         }
 
 
-# just a quaulitative test of the model using BLEU score
-# MS COCO dataset (5%-10%) : ideal for actual bleu scores
-# we are just using 500 images radnomly selected from the dataset with reference captions for testing as it is an educational project
+n_samples = 5000
 
-bleu = BLEU_Score(500, dataset_dir)
+bleu = BLEU_Score(n_samples, dataset_dir)
 output = bleu.get_bleu_score()
 
 with open('bleu_output.json', 'w') as f:
