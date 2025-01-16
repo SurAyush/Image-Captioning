@@ -7,7 +7,7 @@ export default function Home() {
         <div>
         <h1 className="heading">Image Captioning App</h1>
         <div className="lineofbox">
-            <Link to="https://chatgpt.com/" className="link">
+            <Link to="https://medium.com/@ayushsur26/implementing-an-image-caption-model-c990cb620d14" className="link">
                 <Box heading="Blog" text="Read our Medium blog where we discuss about the architecture of the model in details!!!" />
             </Link>
             <Link to="/caption" className="link">
