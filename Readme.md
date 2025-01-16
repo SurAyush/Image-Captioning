@@ -61,19 +61,19 @@ Once everything is set up, you can use the web app to:
 python train.py
 ```
 
-### ** Adjust Hyperparameters:**
+### **Adjust Hyperparameters:**
 
 Modify Config.py to fine-tune the hyperparameters for training.
 
-## ** Notes **
+## **Notes**
 
 💡 The current trained model demonstrates promising results but is limited by resource constraints during training. Despite this, it generates captions related to the input image and shows significant potential for improvement with further training.
 BLEU is not yet been evaluated as the model is not fully trained so evaluation does not seem very meaningful.
 
 For more details, check out my blog: [My Blog Post](https://medium.com/@ayushsur26/implementing-an-image-caption-model-c990cb620d14).
 
-## ** Contributions
+## **Contributions**
 Contributions are welcome! Feel free to fork the repository, submit issues, or create pull requests.
 
-## ** License
+## **License**
 This project is licensed under the MIT License.
