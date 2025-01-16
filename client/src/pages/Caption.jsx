@@ -33,6 +33,9 @@ export default function Caption() {
                 }
                 const response = await axios.post(url+suffix,formData);
                 const data = await response.data;
+                for (let i=0; i<data.captions.length; i++){
+                    data.captions[i] = data.captions[i].charAt(0).toUpperCase() + data.captions[i].slice(1);
+                }
                 setCaptions(data.captions);
                 setgenerating(true);
             }

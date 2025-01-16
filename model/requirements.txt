@@ -1,0 +1,11 @@
+torch
+numpy
+transformers
+skimage
+PIL
+pickle
+json
+tqdm
+dataclass
+nltk
+matplotlib
