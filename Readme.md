@@ -19,11 +19,11 @@ git clone https://github.com/<YourUsername>/<YourRepository>.git
 cd <YourRepository>
 ```
 
-### **2. Download the Model
+### **2. Download the Model**
 Download the pre-trained model from Hugging Face and save it in the model/trained_model directory.
 [Trained-Model](https://huggingface.co/SurAyush/ImageCaptioning)
 
-### **3. Install Dependencies
+### **3. Install Dependencies**
 
 #### Backend
 ```bash
@@ -56,16 +56,16 @@ Once everything is set up, you can use the web app to:
    python parse_coco.py
    ```
 
-### **Train the Model:
+### **Train the Model:**
 ```bash
 python train.py
 ```
 
-### ** Adjust Hyperparameters:
+### ** Adjust Hyperparameters:**
 
 Modify Config.py to fine-tune the hyperparameters for training.
 
-## ** Notes
+## ** Notes **
 
 💡 The current trained model demonstrates promising results but is limited by resource constraints during training. Despite this, it generates captions related to the input image and shows significant potential for improvement with further training.
 BLEU is not yet been evaluated as the model is not fully trained so evaluation does not seem very meaningful.
