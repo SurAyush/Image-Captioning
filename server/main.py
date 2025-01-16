@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from io import BytesIO
 from model.predict import Predictor
 
@@ -8,6 +9,19 @@ app = FastAPI()
 model_path = '../model/trained_model/model_epoch_4.pt'
 predictor = Predictor(model_path)
 
+origins = [
+    "http://localhost:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins, 
+    allow_credentials=True,
+    allow_methods=["*"],   
+    allow_headers=["*"], 
+)
+
+# just a test route
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -17,7 +31,7 @@ async def generate_caption(file: UploadFile = File(...), technique: str = 'greed
     
     if technique not in ['greedy' , 'beam']:
         return JSONResponse(
-            status_code=400,
+            stus_code=400,
             content={"error":"Only Greedy and Beam Search is available"}
         )
     
@@ -40,7 +54,6 @@ async def generate_caption(file: UploadFile = File(...), technique: str = 'greed
             out = predictor.predict(image,True,beam_width)
         else:
             out = predictor.predict(image,False)
-        print(out)
         return {"captions" : out}
     
     except Exception as e:
