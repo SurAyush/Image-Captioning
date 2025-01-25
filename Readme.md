@@ -72,7 +72,8 @@ BLEU is not yet been evaluated as the model is not fully trained so evaluation d
 
 Inconvenience you might face (whole-hearted apologies for that):
 
-Please install any more python libraries if required (and not specified in requirements.txt)
+Please install any more python libraries if required (and not specified in requirements.txt).
+
 You may use the python venv if you like (not used as the heavy packages were pre-installed in my local machine like pytorch)
 
 
