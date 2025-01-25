@@ -15,8 +15,8 @@
 
 ### **1. Clone the Repository**  
 ```bash
-git clone https://github.com/<YourUsername>/<YourRepository>.git
-cd <YourRepository>
+git clone https://github.com/SurAyush/Image-Captioning.git
+cd Image-Captioning
 ```
 
 ### **2. Download the Model**
@@ -69,6 +69,12 @@ Modify Config.py to fine-tune the hyperparameters for training.
 
 💡 The current trained model demonstrates promising results but is limited by resource constraints during training. Despite this, it generates captions related to the input image and shows significant potential for improvement with further training.
 BLEU is not yet been evaluated as the model is not fully trained so evaluation does not seem very meaningful.
+
+Inconvenience you might face (whole-hearted apologies for that):
+
+Please install any more python libraries if required (and not specified in requirements.txt)
+You may use the python venv if you like (not used as the heavy packages were pre-installed in my local machine like pytorch)
+
 
 For more details, check out my blog: [My Blog Post](https://medium.com/@ayushsur26/implementing-an-image-caption-model-c990cb620d14).
 
